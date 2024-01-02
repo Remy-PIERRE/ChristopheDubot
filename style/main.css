@@ -186,7 +186,7 @@ a {
 	flex-direction: column;
 	justify-content: center;
 	gap: 32px;
-	background: url("/public/images/bg_3.jpg");
+	background: url("../public/images/bg_3.jpg");
 	background-size: 100%;
 	background-position: 50%;
 }
