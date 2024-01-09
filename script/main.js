@@ -1,7 +1,14 @@
+// sticky header transition refacto
+
 function initApp() {
 	// all pages //
 	handleHeader();
 	handleFooter();
+
+	// services page
+	if (getPage() === "services") {
+		handleTarifTable();
+	}
 }
 
 function handleHeader() {
@@ -61,9 +68,19 @@ function handleHeader() {
 	});
 }
 
+function handleTarifTable() {
+	return null;
+}
+
 function handleFooter() {
+	// stay update with date !
 	const copyrights = document.querySelector("#copyrights");
 	copyrights.innerHTML = `Tous droits réservés - ${getYear()}`;
+}
+
+function getPage() {
+	if (document.querySelector("#page"))
+		return document.querySelector("#page").dataset.page;
 }
 
 function getMedia() {
