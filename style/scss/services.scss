@@ -1,13 +1,16 @@
 @import "./main.scss";
 @import "./banner.scss";
 @import "./header.scss";
+@import "./articles.scss";
 @import "./footer.scss";
 @import "./test.scss";
 
-.services--container {}
+.services--container {
+    padding-top: 40px;
+}
 
 .services--wrapper {
-    padding-top: 80px;
+    padding-top: 0px;
     padding-bottom: 80px;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -114,7 +117,7 @@
 
 @media (min-width: 769px) {
     .services--wrapper {
-        padding-top: 80px;
+        // padding-top: 80px;
         padding-bottom: 80px;
         grid-template-columns: repeat(2, 1fr);
         gap: 80px;
@@ -123,7 +126,7 @@
 
 @media (min-width: 976px) {
     .services--wrapper {
-        padding-top: 80px;
+        // padding-top: 80px;
         padding-bottom: 80px;
         grid-template-columns: repeat(3, 1fr);
         column-gap: 20px;
@@ -142,75 +145,119 @@
 .tarif--container {}
 
 .tarif--wrapper {
-    padding-top: 40px;
+    // padding-top: 40px;
     padding-bottom: 40px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);    
+    grid-template-columns: 1.5fr repeat(3, 1fr);
 }
 
-.tarif--tarif, .tarif--title, .tarif--categ, .tarif--value {
-    height: 40px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;    
-}
+.tarif--row {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(5, 48px);
 
-.tarif--tarif {    
-    background: red;
-    border: 1px solid #333;
+    .tarif--blank, .tarif--categ, .tarif--seance, .tarif--value {
+        width: 100%;
+        height: 48px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+    }
+    
+    .tarif--categ {
+        border: 1px solid #333;
+        
+        &:not(:nth-child(2)) {
+            border-top: none;
+        }
+    }
+
+    .tarif--seance {
+        border: 1px solid #333;
+    }
+
+    .tarif--value {
+        border: 1px solid #333;
+        border-top: none;
+        border-left: none;
+    }
+
+    &:nth-child(n + 3) {
+        .tarif--seance {
+            border-left: none;
+        }
+    }
 
     h3 {
         font-size: 1rem;
         font-weight: bold;
-        color: #fff;
+        color: #333;
     }
-}
 
-.tarif--title {    
-    background: #333;
-    border: 1px solid #333;
-    border-left: none;
-
-    h3 {
-        font-size: 1rem;
+    h4 {        
+        font-size: 0.8rem;
         font-weight: bold;
-        color: #fff;
-    }
-}
-
-.tarif--categ {    
-    background: #EEE;
-    border: 1px solid #333;
-    border-top: none;
-
-    p {
-        font-size: 1rem;
         color: #333;
     }
 
-    &.last{
-        margin-bottom: 40px;
-    }
-}
-
-.tarif--value {   
-    border: 1px solid #333;
-    border-top: none;
-    border-left: none;
-
     p {
+        font-size: 0.8rem;
+        color: #666;
+    }
+
+    .tarif--value p {        
         font-size: 1rem;
-        color: #333;
     }
 }
 
 @media (min-width: 769px) {
     .tarif--wrapper {
-        grid-template-columns: repeat(5, 1fr);    
-    }
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(4, 60px);
 
-    .mobile {
-        display: none;
-    }
+        .tarif--row {
+            grid-template-columns: repeat(5, 1fr);
+
+            .tarif--blank, .tarif--categ, .tarif--seance, .tarif--value {
+                height: 60px;
+            }
+    
+            .tarif--categ {
+                border: 1px solid #333;
+                
+                &:not(:nth-child(2)) {
+                    border-left: none;
+                }
+            }
+
+            .tarif--seance {
+                border: 1px solid #333;
+            }
+
+            &:nth-child(n + 3) {
+                .tarif--seance {
+                    border-top: none;
+                }
+            }
+        }
+
+        h3 {
+            font-size: 1.2rem;
+        }
+    
+        h4 {        
+            font-size: 1.2rem;
+        }
+    
+        p {
+            font-size: 1rem;
+        }
+
+        .tarif--value p {        
+            font-size: 1.2rem;
+        }
+    }    
 }
