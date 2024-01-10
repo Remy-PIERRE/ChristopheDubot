@@ -112,6 +112,18 @@ a {
   z-index: 4;
 }
 
+.mb-40 {
+  margin-bottom: 40px !important;
+}
+
+.mb-60 {
+  margin-bottom: 60px !important;
+}
+
+.mb-200 {
+  margin-bottom: 200px !important;
+}
+
 .banner--container {
   background: var(--bg-main);
 }
